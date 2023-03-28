@@ -17,6 +17,14 @@ public class heroRPG {
         return this.alive;
     }
 
+    public void setHealth(Long health) {
+        this.health = health;
+    }
+
+    public void setAlive() {
+        this.alive = alive;
+    }
+
     public void attacks(heroRPG victim, Long damage) {
         victim.damage(damage);
     }
@@ -25,6 +33,16 @@ public class heroRPG {
         if (this.health <= 0) {
             this.alive=false;
         }
+    }
+
+    public void heals(heroRPG victim, long healing) {
+        victim.healing(healing);
+    }
+    public void healing(Long healing) {
+        this.health += healing;
+            if (this.health > 1000L) {
+                setHealth(1000L);
+            }
+        }
 
     }
-}

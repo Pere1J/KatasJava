@@ -47,6 +47,26 @@ class heroRPGTest {
         //then heroRPG is died (alive = false)
         assertEquals(false, victim.getAlive());
     }
+    @Test
+    void heroRPGCanHealOthers(){
+        //given 2 personajes
+        var victim= new heroRPG();
+        var sorcerer= new heroRPG();
+
+
+        //when sorcerer  cura aumenta health
+
+        sorcerer.heals(victim, 50L);
+
+
+
+        //then victim aumenta health
+        //but Healing cannot raise health above 1000
+
+        assertEquals(1000L, victim.getHealth());
+
+        //and Dead characters cannot be healed
+    }
 
 
 }
