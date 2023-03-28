@@ -17,9 +17,44 @@ class FizzBuzzTest {
         var fizzBuzz= new FizzBuzz();
 
         //when
-        var sut = fizzBuzz.execute(5);
-        //then
+        var sut = fizzBuzz.execute(3);
+        //then.... espero que FIZZ se el resultado de SUT (system under test)
         assertEquals("Fizz", sut);
+       //assertEquals("(sut)", sut);
+    }
+    @Test
+    void executeReturnsBuzzIfNumIsDivisibleBy5() {
+        //given
+        var fizzBuzz= new FizzBuzz();
+
+        //when
+        var sut = fizzBuzz.execute(5);
+        //then.... espero que Buzz sea el resultado de SUT (system under test)
+        assertEquals("Buzz", sut );
+    }
+    @Test
+    void executeReturnsFizzBuzzIfNumIsDivisibleBy5And3() {
+        //given
+        var fizzBuzz= new FizzBuzz();
+
+        //when
+        var sut = fizzBuzz.execute(15);
+        //then.... espero que Buzz sea el resultado de SUT (system under test)
+        assertEquals("FizzBuzz", sut );
+
 
     }
+
+    @Test
+    void executeReturnsNumIfNumIsNotDivisibleBy5Or3() {
+        //given
+        var fizzBuzz= new FizzBuzz();
+
+        //when
+        var sut = fizzBuzz.execute(4);
+        //then.... espero que Buzz sea el resultado de SUT (system under test)
+        assertEquals("4", sut );
+
+
+}
 }
