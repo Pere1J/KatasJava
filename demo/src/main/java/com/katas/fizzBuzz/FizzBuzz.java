@@ -13,6 +13,18 @@ public class FizzBuzz {
 
          return String.valueOf(num);
 
+         ////////////REFACTOR///////////////////////////
+
+
+        /* public String execute(Integer num) {
+             boolean isFizz = num % 3 == 0;
+             boolean isBuzz = num % 5 == 0;
+
+             return isFizz && isBuzz ? "FizzBuzz"
+                     : isFizz ? "Fizz"
+                     : isBuzz ? "Buzz"
+                     : String.valueOf(num);
+         }*/
 
      }
 
