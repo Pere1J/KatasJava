@@ -62,12 +62,24 @@ class heroRPGTest {
 
         //then victim aumenta health
         //but Healing cannot raise health above 1000
+        // and Dead characters cannot be healed
         assertEquals(true, victim.getAlive());
-
         assertEquals(1000L, victim.getHealth());
 
-        //and Dead characters cannot be healed
+
     }
+    //////////ITERATION TWO////////////////////////////////////
+    @Test
+    void victimCanNotDamageItself() {
+        //given  personaje with health 1000
+        var victim= new heroRPG();
+        //when
+        victim.attacks(victim, 100L);
+
+        //then
+        assertEquals(1000, victim.getHealth());
+    }
+
 
 
 }

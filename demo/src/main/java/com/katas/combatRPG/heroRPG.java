@@ -25,7 +25,13 @@ public class heroRPG {
     }
 
     public void attacks(heroRPG victim, Long damage) {
+        if(victim==this){
+            victim.damage(0L);
+            return;
+        }
         victim.damage(damage);
+
+
     }
 
     public void damage(Long damage) {
