@@ -57,8 +57,8 @@ class heroRPGTest {
 
         //when sorcerer  cura aumenta health
         slayer.attacks(victim, 2L);
-        sorcerer.heals(victim, 20L);
-
+        //sorcerer.heals(victim, 20L);
+        victim.heals(victim, 20L);
 
         //then victim aumenta health
         //but Healing cannot raise health above 1000
@@ -71,6 +71,16 @@ class heroRPGTest {
     //////////ITERATION TWO////////////////////////////////////
     @Test
     void victimCanNotDamageItself() {
+        //given  personaje with health 1000
+        var victim= new heroRPG();
+        //when
+        victim.attacks(victim, 100L);
+
+        //then
+        assertEquals(1000, victim.getHealth());
+    }
+    @Test
+    void heroRpgCanOnlyHealItself() {
         //given  personaje with health 1000
         var victim= new heroRPG();
         //when

@@ -42,7 +42,10 @@ public class heroRPG {
     }
 
     public void heals(heroRPG victim, long healing) {
-        victim.healing(healing);
+        if(this==victim) {
+            victim.healing(healing);
+            return;
+        }victim.healing(0L);
     }
 
     public void healing(Long healing) {
