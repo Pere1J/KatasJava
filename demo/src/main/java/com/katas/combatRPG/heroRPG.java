@@ -22,27 +22,34 @@ public class heroRPG {
     }
 
     public void setAlive() {
-        this.alive = alive;
     }
 
     public void attacks(heroRPG victim, Long damage) {
         victim.damage(damage);
     }
-    public void damage(Long damage){
+
+    public void damage(Long damage) {
         this.health -= damage;
         if (this.health <= 0) {
-            this.alive=false;
+            this.alive = false;
         }
     }
 
     public void heals(heroRPG victim, long healing) {
         victim.healing(healing);
     }
-    public void healing(Long healing) {
-        this.health += healing;
-            if (this.health > 1000L) {
-                setHealth(1000L);
-            }
-        }
 
+    public void healing(Long healing) {
+
+        if (this.alive == false) {
+            this.health += 0;
+        }
+        if (this.alive == true) {
+            this.health += healing;
+        }
+        if (this.health > 1000L) {
+            setHealth(1000L);
+        }
     }
+
+}

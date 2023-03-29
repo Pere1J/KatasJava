@@ -49,19 +49,20 @@ class heroRPGTest {
     }
     @Test
     void heroRPGCanHealOthers(){
-        //given 2 personajes
+        //given  personajes with health 1000
         var victim= new heroRPG();
         var sorcerer= new heroRPG();
+        var slayer= new heroRPG();
 
 
         //when sorcerer  cura aumenta health
-
-        sorcerer.heals(victim, 50L);
-
+        slayer.attacks(victim, 2L);
+        sorcerer.heals(victim, 20L);
 
 
         //then victim aumenta health
         //but Healing cannot raise health above 1000
+        assertEquals(true, victim.getAlive());
 
         assertEquals(1000L, victim.getHealth());
 
