@@ -83,11 +83,35 @@ class heroRPGTest {
     void heroRpgCanOnlyHealItself() {
         //given  personaje with health 1000
         var victim= new heroRPG();
+        var victim2= new heroRPG();
+        var sorcerer= new heroRPG();
+        var slayer= new heroRPG();
         //when
-        victim.attacks(victim, 100L);
+        slayer.attacks(victim, 100L);
+        slayer.attacks(victim2, 100L);
+        sorcerer.heals(victim2, 100L);
+        victim.heals(victim, 100L);
+
 
         //then
+        assertEquals(900, victim2.getHealth());
         assertEquals(1000, victim.getHealth());
+    }
+    @Test
+    void heroRPGDeals50PerCentDamageIfTargetIs5OrMoreLevelsAboveAttacker(){
+        //given
+        var victim= new heroRPG(7);
+        var victim2= new heroRPG(7);
+        var slayer= new heroRPG();
+        var superSlayer= new heroRPG(12);
+
+        //when
+        slayer.attacks(victim, 100L);
+        superSlayer.attacks(victim2, 100L);
+        //then
+        assertEquals(950, victim.getHealth());
+        assertEquals(850, victim2.getHealth());
+
     }
 
 
